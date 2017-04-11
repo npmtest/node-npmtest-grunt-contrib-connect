@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-grunt-contrib-connect/grunt-contrib-connect/tasks/connect.js</title>
+    <meta charset="utf-8">
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            height: 160px;
+            padding: 0 1em 0 1em;
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 170px;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { color: #000; }
+        div.coverage-summary a:visited { color: #333; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1 style="font-weight: bold;">
+        <a href="https://github.com/npmtest/node-npmtest-grunt-contrib-connect">npmtest-grunt-contrib-connect (v0.0.1)</a>
+    </h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-grunt-contrib-connect/grunt-contrib-connect/tasks/connect.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">1.68% <small>(2 / 119)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 97)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 15)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">1.68% <small>(2 / 119)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-grunt-contrib-connect/grunt-contrib-connect/tasks/</a> &#187; connect.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
+ * grunt-contrib-connect
+ * http://gruntjs.com/
+ *
+ * Copyright (c) 2016 "Cowboy" Ben Alman, contributors
+ * Licensed under the MIT license.
+ */
+&nbsp;
+'use strict';
+&nbsp;
+module.exports = <span class="fstat-no" title="function not covered" >function(grunt) {</span>
+<span class="cstat-no" title="statement not covered" >  var path = require('path');</span>
+<span class="cstat-no" title="statement not covered" >  var connect = require('connect');</span>
+<span class="cstat-no" title="statement not covered" >  var morgan = require('morgan');</span>
+<span class="cstat-no" title="statement not covered" >  var serveStatic = require('serve-static');</span>
+<span class="cstat-no" title="statement not covered" >  var serveIndex = require('serve-index');</span>
+<span class="cstat-no" title="statement not covered" >  var http = require('http');</span>
+<span class="cstat-no" title="statement not covered" >  var https = require('https');</span>
+<span class="cstat-no" title="statement not covered" >  var http2 = require('http2');</span>
+<span class="cstat-no" title="statement not covered" >  var injectLiveReload = require('connect-livereload');</span>
+<span class="cstat-no" title="statement not covered" >  var open = require('opn');</span>
+<span class="cstat-no" title="statement not covered" >  var portscanner = require('portscanner');</span>
+<span class="cstat-no" title="statement not covered" >  var async = require('async');</span>
+<span class="cstat-no" title="statement not covered" >  var util = require('util');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  var MAX_PORTS = 30; </span>// Maximum available ports to check after the specified port
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  var createDefaultMiddleware = <span class="fstat-no" title="function not covered" >function createDefaultMiddleware(connect, options) {</span></span>
+<span class="cstat-no" title="statement not covered" >    var middlewares = [];</span>
+<span class="cstat-no" title="statement not covered" >    if (!Array.isArray(options.base)) {</span>
+<span class="cstat-no" title="statement not covered" >      options.base = [options.base];</span>
+    }
+    // Options for serve-static module. See https://www.npmjs.com/package/serve-static
+<span class="cstat-no" title="statement not covered" >    var defaultStaticOptions = {};</span>
+<span class="cstat-no" title="statement not covered" >    var directory = options.directory || options.base[options.base.length - 1];</span>
+<span class="cstat-no" title="statement not covered" >    options.base.forEach(<span class="fstat-no" title="function not covered" >function(base) {</span></span>
+      // Serve static files.
+<span class="cstat-no" title="statement not covered" >      var path = base.path || base;</span>
+<span class="cstat-no" title="statement not covered" >      var staticOptions = base.options || defaultStaticOptions;</span>
+<span class="cstat-no" title="statement not covered" >      middlewares.push(serveStatic(path, staticOptions));</span>
+    });
+    // Make directory browse-able.
+<span class="cstat-no" title="statement not covered" >    middlewares.push(serveIndex(directory.path || directory));</span>
+<span class="cstat-no" title="statement not covered" >    return middlewares;</span>
+  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  grunt.registerMultiTask('connect', 'Start a connect web server.', <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >    var done = this.async();</span>
+    // Merge task-specific options with these defaults.
+<span class="cstat-no" title="statement not covered" >    var options = this.options({</span>
+      protocol: 'http',
+      port: 8000,
+      hostname: '0.0.0.0',
+      base: '.',
+      directory: null,
+      keepalive: false,
+      debug: false,
+      livereload: false,
+      open: false,
+      useAvailablePort: false,
+      onCreateServer: null,
+      // if nothing passed, then is set below 'middleware = createDefaultMiddleware.call(this, connect, options);'
+      middleware: null
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (options.protocol !== 'http' &amp;&amp; options.protocol !== 'https' &amp;&amp; options.protocol !== 'http2') {</span>
+<span class="cstat-no" title="statement not covered" >      grunt.fatal('protocol option must be \'http\', \'https\' or \'http2\'');</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (options.protocol === 'http2' &amp;&amp; /^0.(?:1|2|3|4|5|6|7|8|9|10|11)\./.test(process.versions.node)) {</span>
+<span class="cstat-no" title="statement not covered" >      grunt.fatal('can\'t use http2 with node &lt; 0.12, see https://github.com/molnarg/node-http2/issues/101');</span>
+    }
+&nbsp;
+    // Connect requires the base path to be absolute.
+<span class="cstat-no" title="statement not covered" >    if (Array.isArray(options.base)) {</span>
+<span class="cstat-no" title="statement not covered" >      options.base = options.base.map(<span class="fstat-no" title="function not covered" >function(base) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (base.path) {</span>
+<span class="cstat-no" title="statement not covered" >          base.path = path.resolve(base.path);</span>
+<span class="cstat-no" title="statement not covered" >          return base;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return path.resolve(base);</span>
+      });
+    } else {
+<span class="cstat-no" title="statement not covered" >      if (options.base.path) {</span>
+<span class="cstat-no" title="statement not covered" >        options.base.path = path.resolve(options.base.path);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        options.base = path.resolve(options.base);</span>
+      }
+    }
+&nbsp;
+    // Connect will listen to all interfaces if hostname is null.
+<span class="cstat-no" title="statement not covered" >    if (options.hostname === '*') {</span>
+<span class="cstat-no" title="statement not covered" >      options.hostname = '';</span>
+    }
+&nbsp;
+    // Connect will listen to ephemeral port if asked
+<span class="cstat-no" title="statement not covered" >    if (options.port === '?') {</span>
+<span class="cstat-no" title="statement not covered" >      options.port = 0;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (options.onCreateServer &amp;&amp; !Array.isArray(options.onCreateServer)) {</span>
+<span class="cstat-no" title="statement not covered" >      options.onCreateServer = [options.onCreateServer];</span>
+    }
+&nbsp;
+    //  The middleware options may be null, an array of middleware objects,
+    //  or a factory function that creates an array of middleware objects.
+    //  * For a null value, use the default array of middleware
+    //  * For a function, include the default array of middleware as the last arg
+    //    which enables the function to patch the default middleware without needing to know
+    //    the implementation of the default middleware factory function
+<span class="cstat-no" title="statement not covered" >    var middleware;</span>
+<span class="cstat-no" title="statement not covered" >    if (options.middleware instanceof Array) {</span>
+<span class="cstat-no" title="statement not covered" >      middleware = options.middleware;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      middleware = createDefaultMiddleware.call(this, connect, options);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (typeof options.middleware === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        middleware = options.middleware.call(this, connect, options, middleware);</span>
+      }
+    }
+&nbsp;
+    // If --debug was specified, enable logging.
+<span class="cstat-no" title="statement not covered" >    if (grunt.option('debug') || options.debug === true) {</span>
+<span class="cstat-no" title="statement not covered" >      middleware.unshift(morgan('dev'));</span>
+    }
+&nbsp;
+    // Start server.
+<span class="cstat-no" title="statement not covered" >    var taskTarget = this.target;</span>
+<span class="cstat-no" title="statement not covered" >    var keepAlive = this.flags.keepalive || options.keepalive;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    async.waterfall([</span>
+      // find a port for livereload if needed first
+<span class="fstat-no" title="function not covered" >      function(callback) {</span>
+&nbsp;
+        // Inject live reload snippet
+<span class="cstat-no" title="statement not covered" >        if (options.livereload !== false) {</span>
+<span class="cstat-no" title="statement not covered" >          if (options.livereload === true) {</span>
+<span class="cstat-no" title="statement not covered" >            options.livereload = 35729;</span>
+          }
+&nbsp;
+          // TODO: Add custom ports here?
+<span class="cstat-no" title="statement not covered" >          middleware.unshift(injectLiveReload({port: options.livereload, hostname: options.hostname}));</span>
+<span class="cstat-no" title="statement not covered" >          callback(null);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          callback(null);</span>
+        }
+      },
+<span class="fstat-no" title="function not covered" >      function() {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var app = connect();</span>
+<span class="cstat-no" title="statement not covered" >        var server = null;</span>
+<span class="cstat-no" title="statement not covered" >        var httpsOptions = {</span>
+          key: options.key || grunt.file.read(path.join(__dirname, 'certs', 'server.key')).toString(),
+          cert: options.cert || grunt.file.read(path.join(__dirname, 'certs', 'server.crt')).toString(),
+          ca: options.ca || grunt.file.read(path.join(__dirname, 'certs', 'ca.crt')).toString(),
+          passphrase: options.passphrase || 'grunt'
+        };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        middleware.forEach(<span class="fstat-no" title="function not covered" >function (m) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (!util.isArray(m)) {</span>
+<span class="cstat-no" title="statement not covered" >            m = [m];</span>
+          }
+<span class="cstat-no" title="statement not covered" >          app.use.apply(app, m);</span>
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (options.protocol === 'https') {</span>
+<span class="cstat-no" title="statement not covered" >          server = https.createServer(httpsOptions, app);</span>
+        } else <span class="cstat-no" title="statement not covered" >if (options.protocol === 'http2') {</span>
+<span class="cstat-no" title="statement not covered" >          server = http2.createServer(httpsOptions, app);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          server = http.createServer(app);</span>
+        }
+&nbsp;
+        // Call any onCreateServer functions that are present
+<span class="cstat-no" title="statement not covered" >        if (options.onCreateServer) {</span>
+<span class="cstat-no" title="statement not covered" >          options.onCreateServer.forEach(<span class="fstat-no" title="function not covered" >function(func) {</span></span>
+<span class="cstat-no" title="statement not covered" >            func.call(null, server, connect, options);</span>
+          });
+        }
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function findUnusedPort(port, maxPort, hostname, callback) {</span>
+<span class="cstat-no" title="statement not covered" >          if (hostname === '0.0.0.0') {</span>
+<span class="cstat-no" title="statement not covered" >            hostname = '127.0.0.1';</span>
+          }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (port === 0) {</span>
+<span class="cstat-no" title="statement not covered" >            async.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >              callback(null, 0);</span>
+            });
+          } else {
+<span class="cstat-no" title="statement not covered" >            portscanner.findAPortNotInUse(port, maxPort, hostname, callback);</span>
+          }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        findUnusedPort(options.port, options.port + MAX_PORTS, options.hostname, <span class="fstat-no" title="function not covered" >function(error, foundPort) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (error) {</span>
+<span class="cstat-no" title="statement not covered" >            grunt.log.writeln('Failed to find unused port: ' + error);</span>
+          }
+&nbsp;
+          // if the found port doesn't match the option port, and we are forced to use the option port
+<span class="cstat-no" title="statement not covered" >          if (options.port !== foundPort &amp;&amp; options.useAvailablePort === false) {</span>
+<span class="cstat-no" title="statement not covered" >            grunt.fatal('Port ' + options.port + ' is already in use by another process.');</span>
+          }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          server</span>
+            .listen(foundPort, options.hostname)
+            .on('listening', <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >              var port = foundPort;</span>
+<span class="cstat-no" title="statement not covered" >              var scheme = options.protocol === 'http2' ? 'https' : options.protocol;</span>
+<span class="cstat-no" title="statement not covered" >              var hostname = options.hostname || '0.0.0.0';</span>
+<span class="cstat-no" title="statement not covered" >              var targetHostname = hostname === '0.0.0.0' ? 'localhost' : hostname;</span>
+<span class="cstat-no" title="statement not covered" >              var target = scheme + '://' + targetHostname + ':' + port;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              grunt.log.writeln('Started connect web server on ' + target);</span>
+<span class="cstat-no" title="statement not covered" >              grunt.config.set('connect.' + taskTarget + '.options.hostname', hostname);</span>
+<span class="cstat-no" title="statement not covered" >              grunt.config.set('connect.' + taskTarget + '.options.port', port);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              grunt.event.emit('connect.' + taskTarget + '.listening', hostname, port);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              if (options.open === true) {</span>
+<span class="cstat-no" title="statement not covered" >                open(target);</span>
+              } else <span class="cstat-no" title="statement not covered" >if (typeof options.open === 'object') {</span>
+<span class="cstat-no" title="statement not covered" >                options.open.target = options.open.target || target;</span>
+<span class="cstat-no" title="statement not covered" >                options.open.appName = options.open.appName || null;</span>
+<span class="cstat-no" title="statement not covered" >                options.open.callback = options.open.callback || <span class="fstat-no" title="function not covered" >function() {</span>};</span>
+<span class="cstat-no" title="statement not covered" >                open(options.open.target, options.open.appName, options.open.callback);</span>
+              } else <span class="cstat-no" title="statement not covered" >if (typeof options.open === 'string') {</span>
+<span class="cstat-no" title="statement not covered" >                open(options.open);</span>
+              }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              if (!keepAlive) {</span>
+<span class="cstat-no" title="statement not covered" >                done();</span>
+              }
+            })
+            .on('error', <span class="fstat-no" title="function not covered" >function(err) {</span>
+<span class="cstat-no" title="statement not covered" >              if (err.code === 'EADDRINUSE') {</span>
+<span class="cstat-no" title="statement not covered" >                grunt.fatal('Port ' + foundPort + ' is already in use by another process.');</span>
+              } else {
+<span class="cstat-no" title="statement not covered" >                grunt.fatal(err);</span>
+              }
+            });
+        });
+&nbsp;
+        // So many people expect this task to keep alive that I'm adding an option
+        // for it. Running the task explicitly as grunt:keepalive will override any
+        // value stored in the config. Have fun, people.
+<span class="cstat-no" title="statement not covered" >        if (keepAlive) {</span>
+          // This is now an async task. Since we don't call the "done"
+          // function, this task will never, ever, ever terminate. Have fun!
+<span class="cstat-no" title="statement not covered" >          grunt.log.write('Waiting forever...\n');</span>
+        }
+      }
+    ]);
+  });
+};
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 12:44:48 GMT+0000 (UTC)</div>
+</div>
+</body>
+</html>

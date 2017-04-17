@@ -1,5 +1,7 @@
-<html lang="en"><head>
-    <title>Code coverage report for node-npmtest-grunt-contrib-connect/grunt-contrib-connect/tasks/connect.js</title>
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-grunt-contrib-connect/node_modules/grunt-contrib-connect/tasks/connect.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -192,7 +194,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-grunt-contrib-connect">npmtest-grunt-contrib-connect (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-grunt-contrib-connect/grunt-contrib-connect/tasks/connect.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-grunt-contrib-connect/node_modules/grunt-contrib-connect/tasks/connect.js</span></h1>
     <h2>
         
         Statements: <span class="metric">1.68% <small>(2 / 119)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -208,11 +210,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../index.html">All files</a> » <a href="index.html">node-npmtest-grunt-contrib-connect/grunt-contrib-connect/tasks/</a> » connect.js</div>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-grunt-contrib-connect/node_modules/grunt-contrib-connect/tasks/</a> &#187; connect.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tbody><tr><td class="line-count">1
+<tr><td class="line-count">1
 2
 3
 4
@@ -734,46 +736,46 @@
 &nbsp;
 'use strict';
 &nbsp;
-module.exports = <span class="fstat-no" title="function not covered">function(grunt) {</span>
-<span class="cstat-no" title="statement not covered">  var path = require('path');</span>
-<span class="cstat-no" title="statement not covered">  var connect = require('connect');</span>
-<span class="cstat-no" title="statement not covered">  var morgan = require('morgan');</span>
-<span class="cstat-no" title="statement not covered">  var serveStatic = require('serve-static');</span>
-<span class="cstat-no" title="statement not covered">  var serveIndex = require('serve-index');</span>
-<span class="cstat-no" title="statement not covered">  var http = require('http');</span>
-<span class="cstat-no" title="statement not covered">  var https = require('https');</span>
-<span class="cstat-no" title="statement not covered">  var http2 = require('http2');</span>
-<span class="cstat-no" title="statement not covered">  var injectLiveReload = require('connect-livereload');</span>
-<span class="cstat-no" title="statement not covered">  var open = require('opn');</span>
-<span class="cstat-no" title="statement not covered">  var portscanner = require('portscanner');</span>
-<span class="cstat-no" title="statement not covered">  var async = require('async');</span>
-<span class="cstat-no" title="statement not covered">  var util = require('util');</span>
+module.exports = <span class="fstat-no" title="function not covered" >function(grunt) {</span>
+<span class="cstat-no" title="statement not covered" >  var path = require('path');</span>
+<span class="cstat-no" title="statement not covered" >  var connect = require('connect');</span>
+<span class="cstat-no" title="statement not covered" >  var morgan = require('morgan');</span>
+<span class="cstat-no" title="statement not covered" >  var serveStatic = require('serve-static');</span>
+<span class="cstat-no" title="statement not covered" >  var serveIndex = require('serve-index');</span>
+<span class="cstat-no" title="statement not covered" >  var http = require('http');</span>
+<span class="cstat-no" title="statement not covered" >  var https = require('https');</span>
+<span class="cstat-no" title="statement not covered" >  var http2 = require('http2');</span>
+<span class="cstat-no" title="statement not covered" >  var injectLiveReload = require('connect-livereload');</span>
+<span class="cstat-no" title="statement not covered" >  var open = require('opn');</span>
+<span class="cstat-no" title="statement not covered" >  var portscanner = require('portscanner');</span>
+<span class="cstat-no" title="statement not covered" >  var async = require('async');</span>
+<span class="cstat-no" title="statement not covered" >  var util = require('util');</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var MAX_PORTS = 30; </span>// Maximum available ports to check after the specified port
+<span class="cstat-no" title="statement not covered" >  var MAX_PORTS = 30; </span>// Maximum available ports to check after the specified port
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var createDefaultMiddleware = <span class="fstat-no" title="function not covered">function createDefaultMiddleware(connect, options) {</span></span>
-<span class="cstat-no" title="statement not covered">    var middlewares = [];</span>
-<span class="cstat-no" title="statement not covered">    if (!Array.isArray(options.base)) {</span>
-<span class="cstat-no" title="statement not covered">      options.base = [options.base];</span>
+<span class="cstat-no" title="statement not covered" >  var createDefaultMiddleware = <span class="fstat-no" title="function not covered" >function createDefaultMiddleware(connect, options) {</span></span>
+<span class="cstat-no" title="statement not covered" >    var middlewares = [];</span>
+<span class="cstat-no" title="statement not covered" >    if (!Array.isArray(options.base)) {</span>
+<span class="cstat-no" title="statement not covered" >      options.base = [options.base];</span>
     }
     // Options for serve-static module. See https://www.npmjs.com/package/serve-static
-<span class="cstat-no" title="statement not covered">    var defaultStaticOptions = {};</span>
-<span class="cstat-no" title="statement not covered">    var directory = options.directory || options.base[options.base.length - 1];</span>
-<span class="cstat-no" title="statement not covered">    options.base.forEach(<span class="fstat-no" title="function not covered">function(base) {</span></span>
+<span class="cstat-no" title="statement not covered" >    var defaultStaticOptions = {};</span>
+<span class="cstat-no" title="statement not covered" >    var directory = options.directory || options.base[options.base.length - 1];</span>
+<span class="cstat-no" title="statement not covered" >    options.base.forEach(<span class="fstat-no" title="function not covered" >function(base) {</span></span>
       // Serve static files.
-<span class="cstat-no" title="statement not covered">      var path = base.path || base;</span>
-<span class="cstat-no" title="statement not covered">      var staticOptions = base.options || defaultStaticOptions;</span>
-<span class="cstat-no" title="statement not covered">      middlewares.push(serveStatic(path, staticOptions));</span>
+<span class="cstat-no" title="statement not covered" >      var path = base.path || base;</span>
+<span class="cstat-no" title="statement not covered" >      var staticOptions = base.options || defaultStaticOptions;</span>
+<span class="cstat-no" title="statement not covered" >      middlewares.push(serveStatic(path, staticOptions));</span>
     });
     // Make directory browse-able.
-<span class="cstat-no" title="statement not covered">    middlewares.push(serveIndex(directory.path || directory));</span>
-<span class="cstat-no" title="statement not covered">    return middlewares;</span>
+<span class="cstat-no" title="statement not covered" >    middlewares.push(serveIndex(directory.path || directory));</span>
+<span class="cstat-no" title="statement not covered" >    return middlewares;</span>
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered">  grunt.registerMultiTask('connect', 'Start a connect web server.', <span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">    var done = this.async();</span>
+<span class="cstat-no" title="statement not covered" >  grunt.registerMultiTask('connect', 'Start a connect web server.', <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >    var done = this.async();</span>
     // Merge task-specific options with these defaults.
-<span class="cstat-no" title="statement not covered">    var options = this.options({</span>
+<span class="cstat-no" title="statement not covered" >    var options = this.options({</span>
       protocol: 'http',
       port: 8000,
       hostname: '0.0.0.0',
@@ -789,43 +791,43 @@ module.exports = <span class="fstat-no" title="function not covered">function(gr
       middleware: null
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (options.protocol !== 'http' &amp;&amp; options.protocol !== 'https' &amp;&amp; options.protocol !== 'http2') {</span>
-<span class="cstat-no" title="statement not covered">      grunt.fatal('protocol option must be \'http\', \'https\' or \'http2\'');</span>
+<span class="cstat-no" title="statement not covered" >    if (options.protocol !== 'http' &amp;&amp; options.protocol !== 'https' &amp;&amp; options.protocol !== 'http2') {</span>
+<span class="cstat-no" title="statement not covered" >      grunt.fatal('protocol option must be \'http\', \'https\' or \'http2\'');</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (options.protocol === 'http2' &amp;&amp; /^0.(?:1|2|3|4|5|6|7|8|9|10|11)\./.test(process.versions.node)) {</span>
-<span class="cstat-no" title="statement not covered">      grunt.fatal('can\'t use http2 with node &lt; 0.12, see https://github.com/molnarg/node-http2/issues/101');</span>
+<span class="cstat-no" title="statement not covered" >    if (options.protocol === 'http2' &amp;&amp; /^0.(?:1|2|3|4|5|6|7|8|9|10|11)\./.test(process.versions.node)) {</span>
+<span class="cstat-no" title="statement not covered" >      grunt.fatal('can\'t use http2 with node &lt; 0.12, see https://github.com/molnarg/node-http2/issues/101');</span>
     }
 &nbsp;
     // Connect requires the base path to be absolute.
-<span class="cstat-no" title="statement not covered">    if (Array.isArray(options.base)) {</span>
-<span class="cstat-no" title="statement not covered">      options.base = options.base.map(<span class="fstat-no" title="function not covered">function(base) {</span></span>
-<span class="cstat-no" title="statement not covered">        if (base.path) {</span>
-<span class="cstat-no" title="statement not covered">          base.path = path.resolve(base.path);</span>
-<span class="cstat-no" title="statement not covered">          return base;</span>
+<span class="cstat-no" title="statement not covered" >    if (Array.isArray(options.base)) {</span>
+<span class="cstat-no" title="statement not covered" >      options.base = options.base.map(<span class="fstat-no" title="function not covered" >function(base) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (base.path) {</span>
+<span class="cstat-no" title="statement not covered" >          base.path = path.resolve(base.path);</span>
+<span class="cstat-no" title="statement not covered" >          return base;</span>
         }
-<span class="cstat-no" title="statement not covered">        return path.resolve(base);</span>
+<span class="cstat-no" title="statement not covered" >        return path.resolve(base);</span>
       });
     } else {
-<span class="cstat-no" title="statement not covered">      if (options.base.path) {</span>
-<span class="cstat-no" title="statement not covered">        options.base.path = path.resolve(options.base.path);</span>
+<span class="cstat-no" title="statement not covered" >      if (options.base.path) {</span>
+<span class="cstat-no" title="statement not covered" >        options.base.path = path.resolve(options.base.path);</span>
       } else {
-<span class="cstat-no" title="statement not covered">        options.base = path.resolve(options.base);</span>
+<span class="cstat-no" title="statement not covered" >        options.base = path.resolve(options.base);</span>
       }
     }
 &nbsp;
     // Connect will listen to all interfaces if hostname is null.
-<span class="cstat-no" title="statement not covered">    if (options.hostname === '*') {</span>
-<span class="cstat-no" title="statement not covered">      options.hostname = '';</span>
+<span class="cstat-no" title="statement not covered" >    if (options.hostname === '*') {</span>
+<span class="cstat-no" title="statement not covered" >      options.hostname = '';</span>
     }
 &nbsp;
     // Connect will listen to ephemeral port if asked
-<span class="cstat-no" title="statement not covered">    if (options.port === '?') {</span>
-<span class="cstat-no" title="statement not covered">      options.port = 0;</span>
+<span class="cstat-no" title="statement not covered" >    if (options.port === '?') {</span>
+<span class="cstat-no" title="statement not covered" >      options.port = 0;</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (options.onCreateServer &amp;&amp; !Array.isArray(options.onCreateServer)) {</span>
-<span class="cstat-no" title="statement not covered">      options.onCreateServer = [options.onCreateServer];</span>
+<span class="cstat-no" title="statement not covered" >    if (options.onCreateServer &amp;&amp; !Array.isArray(options.onCreateServer)) {</span>
+<span class="cstat-no" title="statement not covered" >      options.onCreateServer = [options.onCreateServer];</span>
     }
 &nbsp;
     //  The middleware options may be null, an array of middleware objects,
@@ -834,135 +836,135 @@ module.exports = <span class="fstat-no" title="function not covered">function(gr
     //  * For a function, include the default array of middleware as the last arg
     //    which enables the function to patch the default middleware without needing to know
     //    the implementation of the default middleware factory function
-<span class="cstat-no" title="statement not covered">    var middleware;</span>
-<span class="cstat-no" title="statement not covered">    if (options.middleware instanceof Array) {</span>
-<span class="cstat-no" title="statement not covered">      middleware = options.middleware;</span>
+<span class="cstat-no" title="statement not covered" >    var middleware;</span>
+<span class="cstat-no" title="statement not covered" >    if (options.middleware instanceof Array) {</span>
+<span class="cstat-no" title="statement not covered" >      middleware = options.middleware;</span>
     } else {
-<span class="cstat-no" title="statement not covered">      middleware = createDefaultMiddleware.call(this, connect, options);</span>
+<span class="cstat-no" title="statement not covered" >      middleware = createDefaultMiddleware.call(this, connect, options);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">      if (typeof options.middleware === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        middleware = options.middleware.call(this, connect, options, middleware);</span>
+<span class="cstat-no" title="statement not covered" >      if (typeof options.middleware === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        middleware = options.middleware.call(this, connect, options, middleware);</span>
       }
     }
 &nbsp;
     // If --debug was specified, enable logging.
-<span class="cstat-no" title="statement not covered">    if (grunt.option('debug') || options.debug === true) {</span>
-<span class="cstat-no" title="statement not covered">      middleware.unshift(morgan('dev'));</span>
+<span class="cstat-no" title="statement not covered" >    if (grunt.option('debug') || options.debug === true) {</span>
+<span class="cstat-no" title="statement not covered" >      middleware.unshift(morgan('dev'));</span>
     }
 &nbsp;
     // Start server.
-<span class="cstat-no" title="statement not covered">    var taskTarget = this.target;</span>
-<span class="cstat-no" title="statement not covered">    var keepAlive = this.flags.keepalive || options.keepalive;</span>
+<span class="cstat-no" title="statement not covered" >    var taskTarget = this.target;</span>
+<span class="cstat-no" title="statement not covered" >    var keepAlive = this.flags.keepalive || options.keepalive;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">    async.waterfall([</span>
+<span class="cstat-no" title="statement not covered" >    async.waterfall([</span>
       // find a port for livereload if needed first
-<span class="fstat-no" title="function not covered">      function(callback) {</span>
+<span class="fstat-no" title="function not covered" >      function(callback) {</span>
 &nbsp;
         // Inject live reload snippet
-<span class="cstat-no" title="statement not covered">        if (options.livereload !== false) {</span>
-<span class="cstat-no" title="statement not covered">          if (options.livereload === true) {</span>
-<span class="cstat-no" title="statement not covered">            options.livereload = 35729;</span>
+<span class="cstat-no" title="statement not covered" >        if (options.livereload !== false) {</span>
+<span class="cstat-no" title="statement not covered" >          if (options.livereload === true) {</span>
+<span class="cstat-no" title="statement not covered" >            options.livereload = 35729;</span>
           }
 &nbsp;
           // TODO: Add custom ports here?
-<span class="cstat-no" title="statement not covered">          middleware.unshift(injectLiveReload({port: options.livereload, hostname: options.hostname}));</span>
-<span class="cstat-no" title="statement not covered">          callback(null);</span>
+<span class="cstat-no" title="statement not covered" >          middleware.unshift(injectLiveReload({port: options.livereload, hostname: options.hostname}));</span>
+<span class="cstat-no" title="statement not covered" >          callback(null);</span>
         } else {
-<span class="cstat-no" title="statement not covered">          callback(null);</span>
+<span class="cstat-no" title="statement not covered" >          callback(null);</span>
         }
       },
-<span class="fstat-no" title="function not covered">      function() {</span>
+<span class="fstat-no" title="function not covered" >      function() {</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">        var app = connect();</span>
-<span class="cstat-no" title="statement not covered">        var server = null;</span>
-<span class="cstat-no" title="statement not covered">        var httpsOptions = {</span>
+<span class="cstat-no" title="statement not covered" >        var app = connect();</span>
+<span class="cstat-no" title="statement not covered" >        var server = null;</span>
+<span class="cstat-no" title="statement not covered" >        var httpsOptions = {</span>
           key: options.key || grunt.file.read(path.join(__dirname, 'certs', 'server.key')).toString(),
           cert: options.cert || grunt.file.read(path.join(__dirname, 'certs', 'server.crt')).toString(),
           ca: options.ca || grunt.file.read(path.join(__dirname, 'certs', 'ca.crt')).toString(),
           passphrase: options.passphrase || 'grunt'
         };
 &nbsp;
-<span class="cstat-no" title="statement not covered">        middleware.forEach(<span class="fstat-no" title="function not covered">function (m) {</span></span>
-<span class="cstat-no" title="statement not covered">          if (!util.isArray(m)) {</span>
-<span class="cstat-no" title="statement not covered">            m = [m];</span>
+<span class="cstat-no" title="statement not covered" >        middleware.forEach(<span class="fstat-no" title="function not covered" >function (m) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (!util.isArray(m)) {</span>
+<span class="cstat-no" title="statement not covered" >            m = [m];</span>
           }
-<span class="cstat-no" title="statement not covered">          app.use.apply(app, m);</span>
+<span class="cstat-no" title="statement not covered" >          app.use.apply(app, m);</span>
         });
 &nbsp;
-<span class="cstat-no" title="statement not covered">        if (options.protocol === 'https') {</span>
-<span class="cstat-no" title="statement not covered">          server = https.createServer(httpsOptions, app);</span>
-        } else <span class="cstat-no" title="statement not covered">if (options.protocol === 'http2') {</span>
-<span class="cstat-no" title="statement not covered">          server = http2.createServer(httpsOptions, app);</span>
+<span class="cstat-no" title="statement not covered" >        if (options.protocol === 'https') {</span>
+<span class="cstat-no" title="statement not covered" >          server = https.createServer(httpsOptions, app);</span>
+        } else <span class="cstat-no" title="statement not covered" >if (options.protocol === 'http2') {</span>
+<span class="cstat-no" title="statement not covered" >          server = http2.createServer(httpsOptions, app);</span>
         } else {
-<span class="cstat-no" title="statement not covered">          server = http.createServer(app);</span>
+<span class="cstat-no" title="statement not covered" >          server = http.createServer(app);</span>
         }
 &nbsp;
         // Call any onCreateServer functions that are present
-<span class="cstat-no" title="statement not covered">        if (options.onCreateServer) {</span>
-<span class="cstat-no" title="statement not covered">          options.onCreateServer.forEach(<span class="fstat-no" title="function not covered">function(func) {</span></span>
-<span class="cstat-no" title="statement not covered">            func.call(null, server, connect, options);</span>
+<span class="cstat-no" title="statement not covered" >        if (options.onCreateServer) {</span>
+<span class="cstat-no" title="statement not covered" >          options.onCreateServer.forEach(<span class="fstat-no" title="function not covered" >function(func) {</span></span>
+<span class="cstat-no" title="statement not covered" >            func.call(null, server, connect, options);</span>
           });
         }
 &nbsp;
-<span class="fstat-no" title="function not covered">        function findUnusedPort(port, maxPort, hostname, callback) {</span>
-<span class="cstat-no" title="statement not covered">          if (hostname === '0.0.0.0') {</span>
-<span class="cstat-no" title="statement not covered">            hostname = '127.0.0.1';</span>
+<span class="fstat-no" title="function not covered" >        function findUnusedPort(port, maxPort, hostname, callback) {</span>
+<span class="cstat-no" title="statement not covered" >          if (hostname === '0.0.0.0') {</span>
+<span class="cstat-no" title="statement not covered" >            hostname = '127.0.0.1';</span>
           }
 &nbsp;
-<span class="cstat-no" title="statement not covered">          if (port === 0) {</span>
-<span class="cstat-no" title="statement not covered">            async.nextTick(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">              callback(null, 0);</span>
+<span class="cstat-no" title="statement not covered" >          if (port === 0) {</span>
+<span class="cstat-no" title="statement not covered" >            async.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >              callback(null, 0);</span>
             });
           } else {
-<span class="cstat-no" title="statement not covered">            portscanner.findAPortNotInUse(port, maxPort, hostname, callback);</span>
+<span class="cstat-no" title="statement not covered" >            portscanner.findAPortNotInUse(port, maxPort, hostname, callback);</span>
           }
         }
 &nbsp;
-<span class="cstat-no" title="statement not covered">        findUnusedPort(options.port, options.port + MAX_PORTS, options.hostname, <span class="fstat-no" title="function not covered">function(error, foundPort) {</span></span>
-<span class="cstat-no" title="statement not covered">          if (error) {</span>
-<span class="cstat-no" title="statement not covered">            grunt.log.writeln('Failed to find unused port: ' + error);</span>
+<span class="cstat-no" title="statement not covered" >        findUnusedPort(options.port, options.port + MAX_PORTS, options.hostname, <span class="fstat-no" title="function not covered" >function(error, foundPort) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (error) {</span>
+<span class="cstat-no" title="statement not covered" >            grunt.log.writeln('Failed to find unused port: ' + error);</span>
           }
 &nbsp;
           // if the found port doesn't match the option port, and we are forced to use the option port
-<span class="cstat-no" title="statement not covered">          if (options.port !== foundPort &amp;&amp; options.useAvailablePort === false) {</span>
-<span class="cstat-no" title="statement not covered">            grunt.fatal('Port ' + options.port + ' is already in use by another process.');</span>
+<span class="cstat-no" title="statement not covered" >          if (options.port !== foundPort &amp;&amp; options.useAvailablePort === false) {</span>
+<span class="cstat-no" title="statement not covered" >            grunt.fatal('Port ' + options.port + ' is already in use by another process.');</span>
           }
 &nbsp;
-<span class="cstat-no" title="statement not covered">          server</span>
+<span class="cstat-no" title="statement not covered" >          server</span>
             .listen(foundPort, options.hostname)
-            .on('listening', <span class="fstat-no" title="function not covered">function() {</span>
-<span class="cstat-no" title="statement not covered">              var port = foundPort;</span>
-<span class="cstat-no" title="statement not covered">              var scheme = options.protocol === 'http2' ? 'https' : options.protocol;</span>
-<span class="cstat-no" title="statement not covered">              var hostname = options.hostname || '0.0.0.0';</span>
-<span class="cstat-no" title="statement not covered">              var targetHostname = hostname === '0.0.0.0' ? 'localhost' : hostname;</span>
-<span class="cstat-no" title="statement not covered">              var target = scheme + '://' + targetHostname + ':' + port;</span>
+            .on('listening', <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >              var port = foundPort;</span>
+<span class="cstat-no" title="statement not covered" >              var scheme = options.protocol === 'http2' ? 'https' : options.protocol;</span>
+<span class="cstat-no" title="statement not covered" >              var hostname = options.hostname || '0.0.0.0';</span>
+<span class="cstat-no" title="statement not covered" >              var targetHostname = hostname === '0.0.0.0' ? 'localhost' : hostname;</span>
+<span class="cstat-no" title="statement not covered" >              var target = scheme + '://' + targetHostname + ':' + port;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">              grunt.log.writeln('Started connect web server on ' + target);</span>
-<span class="cstat-no" title="statement not covered">              grunt.config.set('connect.' + taskTarget + '.options.hostname', hostname);</span>
-<span class="cstat-no" title="statement not covered">              grunt.config.set('connect.' + taskTarget + '.options.port', port);</span>
+<span class="cstat-no" title="statement not covered" >              grunt.log.writeln('Started connect web server on ' + target);</span>
+<span class="cstat-no" title="statement not covered" >              grunt.config.set('connect.' + taskTarget + '.options.hostname', hostname);</span>
+<span class="cstat-no" title="statement not covered" >              grunt.config.set('connect.' + taskTarget + '.options.port', port);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">              grunt.event.emit('connect.' + taskTarget + '.listening', hostname, port);</span>
+<span class="cstat-no" title="statement not covered" >              grunt.event.emit('connect.' + taskTarget + '.listening', hostname, port);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">              if (options.open === true) {</span>
-<span class="cstat-no" title="statement not covered">                open(target);</span>
-              } else <span class="cstat-no" title="statement not covered">if (typeof options.open === 'object') {</span>
-<span class="cstat-no" title="statement not covered">                options.open.target = options.open.target || target;</span>
-<span class="cstat-no" title="statement not covered">                options.open.appName = options.open.appName || null;</span>
-<span class="cstat-no" title="statement not covered">                options.open.callback = options.open.callback || <span class="fstat-no" title="function not covered">function() {</span>};</span>
-<span class="cstat-no" title="statement not covered">                open(options.open.target, options.open.appName, options.open.callback);</span>
-              } else <span class="cstat-no" title="statement not covered">if (typeof options.open === 'string') {</span>
-<span class="cstat-no" title="statement not covered">                open(options.open);</span>
+<span class="cstat-no" title="statement not covered" >              if (options.open === true) {</span>
+<span class="cstat-no" title="statement not covered" >                open(target);</span>
+              } else <span class="cstat-no" title="statement not covered" >if (typeof options.open === 'object') {</span>
+<span class="cstat-no" title="statement not covered" >                options.open.target = options.open.target || target;</span>
+<span class="cstat-no" title="statement not covered" >                options.open.appName = options.open.appName || null;</span>
+<span class="cstat-no" title="statement not covered" >                options.open.callback = options.open.callback || <span class="fstat-no" title="function not covered" >function() {</span>};</span>
+<span class="cstat-no" title="statement not covered" >                open(options.open.target, options.open.appName, options.open.callback);</span>
+              } else <span class="cstat-no" title="statement not covered" >if (typeof options.open === 'string') {</span>
+<span class="cstat-no" title="statement not covered" >                open(options.open);</span>
               }
 &nbsp;
-<span class="cstat-no" title="statement not covered">              if (!keepAlive) {</span>
-<span class="cstat-no" title="statement not covered">                done();</span>
+<span class="cstat-no" title="statement not covered" >              if (!keepAlive) {</span>
+<span class="cstat-no" title="statement not covered" >                done();</span>
               }
             })
-            .on('error', <span class="fstat-no" title="function not covered">function(err) {</span>
-<span class="cstat-no" title="statement not covered">              if (err.code === 'EADDRINUSE') {</span>
-<span class="cstat-no" title="statement not covered">                grunt.fatal('Port ' + foundPort + ' is already in use by another process.');</span>
+            .on('error', <span class="fstat-no" title="function not covered" >function(err) {</span>
+<span class="cstat-no" title="statement not covered" >              if (err.code === 'EADDRINUSE') {</span>
+<span class="cstat-no" title="statement not covered" >                grunt.fatal('Port ' + foundPort + ' is already in use by another process.');</span>
               } else {
-<span class="cstat-no" title="statement not covered">                grunt.fatal(err);</span>
+<span class="cstat-no" title="statement not covered" >                grunt.fatal(err);</span>
               }
             });
         });
@@ -970,10 +972,10 @@ module.exports = <span class="fstat-no" title="function not covered">function(gr
         // So many people expect this task to keep alive that I'm adding an option
         // for it. Running the task explicitly as grunt:keepalive will override any
         // value stored in the config. Have fun, people.
-<span class="cstat-no" title="statement not covered">        if (keepAlive) {</span>
+<span class="cstat-no" title="statement not covered" >        if (keepAlive) {</span>
           // This is now an async task. Since we don't call the "done"
           // function, this task will never, ever, ever terminate. Have fun!
-<span class="cstat-no" title="statement not covered">          grunt.log.write('Waiting forever...\n');</span>
+<span class="cstat-no" title="statement not covered" >          grunt.log.write('Waiting forever...\n');</span>
         }
       }
     ]);
@@ -981,11 +983,10 @@ module.exports = <span class="fstat-no" title="function not covered">function(gr
 };
 &nbsp;
 &nbsp;</pre></td></tr>
-</tbody></table></pre>
+</table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 12:47:01 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Mon Apr 17 2017 21:17:47 GMT+0000 (UTC)</div>
 </div>
-
-
-</body></html>
+</body>
+</html>

@@ -1,7 +1,7 @@
 # test coverage for  [grunt-contrib-connect (v1.0.2)](https://github.com/gruntjs/grunt-contrib-connect#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-grunt-contrib-connect.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-grunt-contrib-connect) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-grunt-contrib-connect.svg)](https://travis-ci.org/npmtest/node-npmtest-grunt-contrib-connect)
 #### Start a connect web server
 
-[![NPM](https://nodei.co/npm/grunt-contrib-connect.png?downloads=true)](https://www.npmjs.com/package/grunt-contrib-connect)
+[![NPM](https://nodei.co/npm/grunt-contrib-connect.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/grunt-contrib-connect)
 
 | git-branch : | [alpha](https://github.com/npmtest/node-npmtest-grunt-contrib-connect/tree/alpha)|
 |--:|:--|
@@ -9,11 +9,17 @@
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-grunt-contrib-connect/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-grunt-contrib-connect/build/test-report.html)|
 | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-grunt-contrib-connect/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-grunt-contrib-connect/tree/gh-pages/build)|
 
-[![istanbul-coverage](https://npmtest.github.io/node-npmtest-grunt-contrib-connect/build/screenCapture.buildCustomOrg.browser.coverage.html.png)](https://npmtest.github.io/node-npmtest-grunt-contrib-connect/build/coverage.html/index.html)
+- [https://npmtest.github.io/node-npmtest-grunt-contrib-connect/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-grunt-contrib-connect/build/coverage.html/index.html)
 
-[![test-report](https://npmtest.github.io/node-npmtest-grunt-contrib-connect/build/screenCapture.buildCustomOrg.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmtest%252Fnode-npmtest-grunt-contrib-connect%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-grunt-contrib-connect/build/test-report.html)
+[![istanbul-coverage](https://npmtest.github.io/node-npmtest-grunt-contrib-connect/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png)](https://npmtest.github.io/node-npmtest-grunt-contrib-connect/build/coverage.html/index.html)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-grunt-contrib-connect/build/screenCapture.buildApidoc.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmdoc%252Fnode-npmdoc-grunt-contrib-connect%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-grunt-contrib-connect/build/apidoc.html)
+- [https://npmtest.github.io/node-npmtest-grunt-contrib-connect/build/test-report.html](https://npmtest.github.io/node-npmtest-grunt-contrib-connect/build/test-report.html)
+
+[![test-report](https://npmtest.github.io/node-npmtest-grunt-contrib-connect/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-grunt-contrib-connect/build/test-report.html)
+
+- [https://npmdoc.github.io/node-npmdoc-grunt-contrib-connect/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-grunt-contrib-connect/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-grunt-contrib-connect/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-grunt-contrib-connect/build/apidoc.html)
 
 ![npmPackageListing](https://npmtest.github.io/node-npmtest-grunt-contrib-connect/build/screenCapture.npmPackageListing.svg)
 
@@ -131,28 +137,22 @@
     "main": "tasks/connect.js",
     "maintainers": [
         {
-            "name": "cowboy",
-            "email": "cowboy@rj3.net"
+            "name": "cowboy"
         },
         {
-            "name": "tkellen",
-            "email": "tyler@sleekcode.net"
+            "name": "tkellen"
         },
         {
-            "name": "shama",
-            "email": "kyle@dontkry.com"
+            "name": "shama"
         },
         {
-            "name": "sindresorhus",
-            "email": "sindresorhus@gmail.com"
+            "name": "sindresorhus"
         },
         {
-            "name": "vladikoff",
-            "email": "vlad@vladikoff.com"
+            "name": "vladikoff"
         },
         {
-            "name": "jmeas",
-            "email": "jellyes2@gmail.com"
+            "name": "jmeas"
         }
     ],
     "name": "grunt-contrib-connect",
@@ -160,7 +160,6 @@
     "peerDependencies": {
         "grunt": ">=0.4.0"
     },
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/gruntjs/grunt-contrib-connect.git"

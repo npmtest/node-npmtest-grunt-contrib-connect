@@ -1,4 +1,7 @@
-# test coverage for  [grunt-contrib-connect (v1.0.2)](https://github.com/gruntjs/grunt-contrib-connect#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-grunt-contrib-connect.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-grunt-contrib-connect) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-grunt-contrib-connect.svg)](https://travis-ci.org/npmtest/node-npmtest-grunt-contrib-connect)
+# npmtest-grunt-contrib-connect
+
+#### basic test coverage for  [grunt-contrib-connect (v1.0.2)](https://github.com/gruntjs/grunt-contrib-connect#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-grunt-contrib-connect.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-grunt-contrib-connect) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-grunt-contrib-connect.svg)](https://travis-ci.org/npmtest/node-npmtest-grunt-contrib-connect)
+
 #### Start a connect web server
 
 [![NPM](https://nodei.co/npm/grunt-contrib-connect.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/grunt-contrib-connect)
@@ -167,7 +170,8 @@
     "scripts": {
         "test": "grunt test --verbose"
     },
-    "version": "1.0.2"
+    "version": "1.0.2",
+    "bin": {}
 }
 ```
 
